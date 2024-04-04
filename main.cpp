@@ -689,7 +689,7 @@ int main() {
     }
 
     // Evaluate best tree with animation
-    const int num_episode = 3;
+    const int num_episode = 2;
     evaluate(rng, best_tree, num_episode, true);
 
     // Print best tree info
