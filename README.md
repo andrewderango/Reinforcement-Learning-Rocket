@@ -4,7 +4,7 @@ This project implements a genetic programming approach to land a rocket at a spe
 
 ## Demo
 
-A video demo is available [here]([fakelink.com](https://youtu.be/1u2UUE-3-uU)) that trains the rocket and shows the final simulated environment after 100 generations.
+A video demo is available [here](https://youtu.be/1u2UUE-3-uU) that trains the rocket and shows the final simulated environment after 100 generations.
 
 ## Features
 **Genetic Programming**: The program uses genetic programming techniques to evolve an expression tree that determines the rocket's thrust based on its position and velocity.
