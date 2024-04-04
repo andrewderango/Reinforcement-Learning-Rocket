@@ -7,7 +7,7 @@
 #include <stack>
 #include <vector>
 
-#include "cartCentering.h"
+#include "rocketCentering.h"
 
 using namespace std;
 
@@ -64,7 +64,7 @@ Elem fetchOperator(mt19937& rng) {
 Elem fetchOperand(mt19937& rng) {
     uniform_real_distribution<double> uniform_dist(-10, 10);
     double rand_double = uniform_dist(rng);
-    vector<Elem> operands = {"a", "b", to_string(rand_double)}; // a is the cart position, b is the cart velocity. 1/3 chance of being a constant
+    vector<Elem> operands = {"a", "b", to_string(rand_double)}; // a is the rocket position, b is the rocket velocity. 1/3 chance of being a constant
     uniform_int_distribution<int> index(0, operands.size() - 1);
     return operands[index(rng)];
 }
@@ -528,9 +528,9 @@ LinkedBinaryTree createRandExpressionTree(int max_depth, mt19937& rng) {
     return t;
 }
 
-// Evaluate tree t in the cart centering task
+// Evaluate tree t in the rocket centering task
 void evaluate(mt19937& rng, LinkedBinaryTree& t, const int& num_episode, bool animate) {
-    cartCentering env;
+    rocketCentering env;
     double mean_score = 0.0;
     double mean_steps = 0.0;
 
@@ -539,7 +539,7 @@ void evaluate(mt19937& rng, LinkedBinaryTree& t, const int& num_episode, bool an
         int episode_steps = 0;
         env.reset(rng);
         while (!env.terminal()) {
-            int action = t.evaluateExpression(env.getCartXPos(), env.getCartXVel());
+            int action = t.evaluateExpression(env.getRocketXPos(), env.getRocketXVel());
             episode_score += env.update(action, animate);
             episode_steps++;
         }
